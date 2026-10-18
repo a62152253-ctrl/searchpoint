@@ -1,0 +1,19 @@
+services:
+  nexus:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: project-nexus
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - HOST=0.0.0.0
+    volumes:
+      - nexus-data:/app/server/storage
+
+volumes:
+  nexus-data:
+    name: nexus_production_storage

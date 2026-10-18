@@ -1,0 +1,13 @@
+{
+  "wallets": {
+    "ltc": "",
+    "sol": "",
+    "polygonUsdt": ""
+  },
+  "targetPriceUsd": 5,
+  "minConfirmations": {
+    "ltc": 0,
+    "sol": 1,
+    "polygonUsdt": 1
+  }
+}

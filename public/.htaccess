@@ -1,0 +1,46 @@
+# Project Nexus / SearchPoint Production .htaccess
+DirectoryIndex index.html index.php
+
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType text/css .css
+  AddType application/zip .zip
+  AddType application/octet-stream .bat
+  AddType application/json .json
+  AddType image/svg+xml .svg
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 0. Strict security: Block direct web downloads of storage vaults and sensitive filetypes
+  RewriteRule ^storage(/.*)?$ - [F,L]
+  RewriteRule \.(json|sqlite|db|log|bak|env)$ - [F,L]
+
+  # 1. If physical file or folder exists, serve directly without any rewrite
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 2. Route /api/auth/* and /api/* to /api/auth.php
+  RewriteRule ^api/auth/(.*)$ /api/auth.php?endpoint=$1 [QSA,L]
+  RewriteRule ^api/(.*)$ /api/auth.php?endpoint=$1 [QSA,L]
+
+  # 3. SPA fallback to index.html
+  RewriteRule ^index\.html$ - [L]
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Caching for production assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+</IfModule>

@@ -1,0 +1,120 @@
+{
+  "watcherActive": true,
+  "shieldActive": true,
+  "blockNsfw": true,
+  "blockMalware": true,
+  "useContextualAnalysis": true,
+  "trapDoubleExtensions": true,
+  "blockDangerousScripts": true,
+  "zeroTrustMacros": true,
+  "blockFakeInstallers": true,
+  "alertRansomwareCanaries": true,
+  "scriptWhitelist": [
+    ".ts",
+    ".tsx",
+    ".js",
+    ".jsx",
+    ".json",
+    ".py"
+  ],
+  "nsfwSensitivity": 75,
+  "nsfwAction": "quarantine",
+  "customNsfwBlacklist": [
+    "porno",
+    "xxx",
+    "hentai",
+    "onlyfans",
+    "rucha"
+  ],
+  "customNsfwWhitelist": [
+    "nauka",
+    "badania",
+    "statystyka",
+    "biologia",
+    "medycyna",
+    "uniwersytet",
+    "raport"
+  ],
+  "watcherDebounceMs": 350,
+  "autoSortSubfolders": true,
+  "skipIncompleteDownloads": true,
+  "ignoredExtensions": [
+    ".crdownload",
+    ".part",
+    ".tmp",
+    ".opdownload",
+    ".aria2"
+  ],
+  "routingRules": [
+    {
+      "id": "img",
+      "label": "Obrazy i Grafika",
+      "extensions": ".jpg, .png, .webp, .svg, .psd",
+      "destination": "/Obrazy",
+      "enabled": true
+    },
+    {
+      "id": "doc",
+      "label": "Dokumenty i Faktury",
+      "extensions": ".pdf, .docx, .xlsx, .pptx, .txt",
+      "destination": "/Dokumenty",
+      "enabled": true
+    },
+    {
+      "id": "arc",
+      "label": "Archiwa skompresowane",
+      "extensions": ".zip, .rar, .7z, .tar, .gz",
+      "destination": "/Archiwa",
+      "enabled": true
+    },
+    {
+      "id": "ins",
+      "label": "Instalatory i Obrazy ISO",
+      "extensions": ".exe, .msi, .iso, .dmg",
+      "destination": "/Instalatory",
+      "enabled": true
+    },
+    {
+      "id": "dev",
+      "label": "Kod źródłowy i Dane",
+      "extensions": ".json, .sql, .py, .ts, .csv",
+      "destination": "/Dev_Workspace",
+      "enabled": false
+    }
+  ],
+  "ghostInstallerMaxAgeDays": 7,
+  "ghostCleanEmptyDirs": true,
+  "ghostAutoSchedule": false,
+  "dedupAlgorithm": "xxhash64",
+  "dedupAction": "ask",
+  "dedupIgnoreZeroByte": true,
+  "maxWorkerThreads": 8,
+  "lowPriorityIo": true,
+  "silentNotifications": true,
+  "quarantineVaultPath": "",
+  "customAutomationRules": [
+    {
+      "id": "rule-faktury",
+      "name": "Auto-Routing Faktur VAT",
+      "pattern": "faktura|vat|rachunek|invoice",
+      "action": "move",
+      "target": "/Faktury_VAT",
+      "enabled": true
+    },
+    {
+      "id": "rule-screens",
+      "name": "Auto-Katalog Zrzutów",
+      "pattern": "screenshot|zrzut|przechwyc",
+      "action": "move",
+      "target": "/Zrzuty_Ekranu",
+      "enabled": true
+    }
+  ],
+  "totalQuarantined": 0,
+  "zeroTrustMacroBlock": true,
+  "ocrMode": "deep_ai",
+  "ocrAutoTagging": true,
+  "deepArchiveScan": true,
+  "securityPreset": "balanced",
+  "watchingPath": ""
+}

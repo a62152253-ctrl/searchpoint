@@ -1,0 +1,1357 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   PROJECT NEXUS - TITANIUM OBSIDIAN DESIGN SYSTEM (v3 - ULTRA CLEAN & FAST)
+   Engineered for: Raycast fluidity, Obsidian Void aesthetics, 60fps animations,
+   bounded rendering, high-density HUD interfaces and zero junk bloat (~2000 lines).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   SECTION 1: THEME TOKENS & SYSTEM VARIABLES
+   -------------------------------------------------------------------------- */
+:root {
+  /* Default: Obsidian Void */
+  --nexus-bg: #121214;
+  --nexus-bg-alt: #0a0a0c;
+  --nexus-surface: #18181b;
+  --nexus-surface-hover: #222226;
+  --nexus-surface-active: #2b2b32;
+  --nexus-surface-subtle: rgba(255, 255, 255, 0.03);
+  
+  --nexus-border: rgba(255, 255, 255, 0.08);
+  --nexus-border-strong: rgba(255, 255, 255, 0.16);
+  --nexus-border-glow: rgba(168, 85, 247, 0.4);
+  --nexus-border-subtle: rgba(255, 255, 255, 0.05);
+
+  --nexus-accent-purple: #a855f7;
+  --nexus-accent-purple-light: #c084fc;
+  --nexus-accent-purple-dark: #7e22ce;
+  --nexus-accent-blue: #3b82f6;
+  --nexus-accent-cyan: #06b6d4;
+  --nexus-accent-emerald: #10b981;
+  --nexus-accent-amber: #f59e0b;
+  --nexus-accent-rose: #f43f5e;
+  --nexus-accent-indigo: #6366f1;
+
+  --nexus-text-primary: #f4f4f5;
+  --nexus-text-secondary: #a1a1aa;
+  --nexus-text-muted: #71717a;
+  --nexus-text-inverse: #09090b;
+
+  --nexus-glow-spread: 28px;
+  --nexus-blur-panel: 16px;
+  --nexus-card-radius: 14px;
+  --nexus-font-sans: system-ui, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --nexus-font-mono: ui-monospace, "Cascadia Code", Consolas, "Fira Code", monospace;
+
+  --nexus-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --nexus-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --nexus-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.7);
+  --nexus-shadow-neon: 0 0 25px rgba(168, 85, 247, 0.35);
+}
+
+/* Theme: Cyberpunk Neon */
+[data-theme="cyberpunk"] {
+  --nexus-bg: #09090e;
+  --nexus-bg-alt: #040406;
+  --nexus-surface: #13111c;
+  --nexus-surface-hover: #1f1a2e;
+  --nexus-surface-active: #2c2442;
+  --nexus-border: rgba(244, 63, 94, 0.28);
+  --nexus-border-strong: rgba(234, 179, 8, 0.45);
+  --nexus-border-glow: rgba(244, 63, 94, 0.65);
+  --nexus-accent-purple: #ec4899;
+  --nexus-accent-purple-light: #f472b6;
+  --nexus-accent-blue: #06b6d4;
+  --nexus-accent-cyan: #22d3ee;
+  --nexus-accent-emerald: #10b981;
+  --nexus-accent-amber: #eab308;
+  --nexus-accent-rose: #f43f5e;
+  --nexus-text-primary: #fef08a;
+  --nexus-text-secondary: #f472b6;
+  --nexus-text-muted: #9333ea;
+  --nexus-shadow-neon: 0 0 28px rgba(244, 63, 94, 0.4);
+}
+
+/* Theme: Titanium Enterprise */
+[data-theme="titanium"] {
+  --nexus-bg: #0f1012;
+  --nexus-bg-alt: #090a0b;
+  --nexus-surface: #191b1f;
+  --nexus-surface-hover: #24272d;
+  --nexus-surface-active: #30343c;
+  --nexus-border: rgba(255, 255, 255, 0.12);
+  --nexus-border-strong: rgba(255, 255, 255, 0.28);
+  --nexus-border-glow: rgba(148, 163, 184, 0.45);
+  --nexus-accent-purple: #94a3b8;
+  --nexus-accent-purple-light: #cbd5e1;
+  --nexus-accent-blue: #38bdf8;
+  --nexus-accent-cyan: #22d3ee;
+  --nexus-accent-emerald: #34d399;
+  --nexus-accent-amber: #fbbf24;
+  --nexus-accent-rose: #fb7185;
+  --nexus-text-primary: #f8fafc;
+  --nexus-text-secondary: #94a3b8;
+  --nexus-text-muted: #64748b;
+  --nexus-shadow-neon: 0 0 24px rgba(56, 189, 248, 0.35);
+}
+
+/* Theme: Matrix Hacker Terminal */
+[data-theme="matrix"] {
+  --nexus-bg: #020b05;
+  --nexus-bg-alt: #010502;
+  --nexus-surface: #061a0d;
+  --nexus-surface-hover: #0c2e17;
+  --nexus-surface-active: #113d20;
+  --nexus-border: rgba(34, 197, 94, 0.28);
+  --nexus-border-strong: rgba(34, 197, 94, 0.55);
+  --nexus-border-glow: rgba(34, 197, 94, 0.75);
+  --nexus-accent-purple: #22c55e;
+  --nexus-accent-purple-light: #4ade80;
+  --nexus-accent-blue: #16a34a;
+  --nexus-accent-cyan: #86efac;
+  --nexus-accent-emerald: #22c55e;
+  --nexus-accent-amber: #eab308;
+  --nexus-accent-rose: #ef4444;
+  --nexus-text-primary: #86efac;
+  --nexus-text-secondary: #4ade80;
+  --nexus-text-muted: #15803d;
+  --nexus-shadow-neon: 0 0 26px rgba(34, 197, 94, 0.45);
+}
+
+/* Theme: Nord Arctic Frost */
+[data-theme="nord"] {
+  --nexus-bg: #242933;
+  --nexus-bg-alt: #1e222a;
+  --nexus-surface: #2e3440;
+  --nexus-surface-hover: #3b4252;
+  --nexus-surface-active: #434c5e;
+  --nexus-border: rgba(136, 192, 208, 0.2);
+  --nexus-border-strong: rgba(136, 192, 208, 0.4);
+  --nexus-border-glow: rgba(136, 192, 208, 0.55);
+  --nexus-accent-purple: #b48ead;
+  --nexus-accent-purple-light: #d8dee9;
+  --nexus-accent-blue: #81a1c1;
+  --nexus-accent-cyan: #88c0d0;
+  --nexus-accent-emerald: #a3be8c;
+  --nexus-accent-amber: #ebcb8b;
+  --nexus-accent-rose: #bf616a;
+  --nexus-text-primary: #eceff4;
+  --nexus-text-secondary: #d8dee9;
+  --nexus-text-muted: #4c566a;
+  --nexus-shadow-neon: 0 0 25px rgba(136, 192, 208, 0.35);
+}
+
+/* Theme: Dracula Neon */
+[data-theme="dracula"] {
+  --nexus-bg: #1e1f29;
+  --nexus-bg-alt: #14151c;
+  --nexus-surface: #282a36;
+  --nexus-surface-hover: #343746;
+  --nexus-surface-active: #44475a;
+  --nexus-border: rgba(189, 147, 249, 0.25);
+  --nexus-border-strong: rgba(189, 147, 249, 0.5);
+  --nexus-border-glow: rgba(255, 121, 198, 0.65);
+  --nexus-accent-purple: #bd93f9;
+  --nexus-accent-purple-light: #ff79c6;
+  --nexus-accent-blue: #8be9fd;
+  --nexus-accent-cyan: #8be9fd;
+  --nexus-accent-emerald: #50fa7b;
+  --nexus-accent-amber: #f1fa8c;
+  --nexus-accent-rose: #ff5555;
+  --nexus-text-primary: #f8f8f2;
+  --nexus-text-secondary: #6272a4;
+  --nexus-text-muted: #44475a;
+  --nexus-shadow-neon: 0 0 28px rgba(189, 147, 249, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 2: GLOBAL RESETS & BASE LAYER
+   -------------------------------------------------------------------------- */
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+    border-color: var(--nexus-border);
+  }
+
+  html, body {
+    background-color: var(--nexus-bg);
+    color: var(--nexus-text-primary);
+    font-family: var(--nexus-font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    user-select: none;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  #root {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::selection {
+    background: var(--nexus-accent-purple);
+    color: #ffffff;
+  }
+
+  code, pre, kbd, samp {
+    font-family: var(--nexus-font-mono);
+  }
+
+  button, input, textarea, select {
+    font-family: inherit;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 3: ULTRA-CLEAN CUSTOM SCROLLBARS (ZERO LAG)
+   -------------------------------------------------------------------------- */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Minimalist horizontal scroll indicator */
+.custom-scrollbar-h {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+}
+.custom-scrollbar-h::-webkit-scrollbar {
+  height: 4px;
+}
+.custom-scrollbar-h::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+.custom-scrollbar-h::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 4: GLASSMORPHISM & SURFACE PANELS
+   -------------------------------------------------------------------------- */
+.glass-panel {
+  background: rgba(24, 24, 27, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--nexus-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.glass-panel-deep {
+  background: rgba(15, 15, 18, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--nexus-border-strong);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65);
+}
+
+.glass-panel-frost {
+  background: rgba(30, 30, 36, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.titanium-card {
+  background: linear-gradient(145deg, rgba(28, 28, 33, 0.85) 0%, rgba(18, 18, 22, 0.95) 100%);
+  border: 1px solid var(--nexus-border);
+  border-radius: var(--nexus-card-radius);
+  box-shadow: var(--nexus-shadow-sm);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.titanium-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--nexus-border-strong);
+  box-shadow: var(--nexus-shadow-md);
+}
+
+/* Neon Borders & Accents */
+.neon-border {
+  border: 1px solid var(--nexus-border-glow);
+  box-shadow: 0 0 16px var(--nexus-border-glow);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+}
+
+.neon-glow-emerald {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+}
+
+.neon-glow-rose {
+  box-shadow: 0 0 20px rgba(244, 63, 94, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 5: ANIMATION KEYFRAMES & MOTION DYNAMICS
+   -------------------------------------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes morphIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulseGlowPurple {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.55);
+  }
+}
+
+@keyframes pulseGlowCyan {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.55);
+  }
+}
+
+@keyframes pulseGlowEmerald {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.55);
+  }
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes laserSweepX {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes eqBounce {
+  0%, 100% { height: 4px; }
+  50% { height: 18px; }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes glitchFlicker {
+  0%, 100% { opacity: 1; transform: translate(0); }
+  20% { opacity: 0.85; transform: translate(-1px, 1px); }
+  40% { opacity: 0.95; transform: translate(1px, -1px); }
+  60% { opacity: 0.9; transform: translate(-1px, -1px); }
+  80% { opacity: 1; transform: translate(1px, 1px); }
+}
+
+@keyframes auroraFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 6: ANIMATION UTILITY CLASSES
+   -------------------------------------------------------------------------- */
+.animate-fadeIn {
+  animation: fadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fadeInScale {
+  animation: fadeInScale 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-morphIn {
+  animation: morphIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideUpFade {
+  animation: slideUpFade 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideDownFade {
+  animation: slideDownFade 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-shimmerEffect {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0) 100%);
+  background-size: 200% 100%;
+  animation: shimmerEffect 2.2s infinite;
+}
+
+.animate-pulseGlowPurple {
+  animation: pulseGlowPurple 2.5s infinite;
+}
+
+.animate-pulseGlowCyan {
+  animation: pulseGlowCyan 2.5s infinite;
+}
+
+.animate-pulseGlowEmerald {
+  animation: pulseGlowEmerald 2.5s infinite;
+}
+
+.animate-radarSweep {
+  animation: radarSweep 3s linear infinite;
+}
+
+.animate-laserSweepX {
+  animation: laserSweepX 2s linear infinite;
+}
+
+.animate-eqBounce {
+  animation: eqBounce 0.8s ease-in-out infinite;
+}
+
+.animate-floatGentle {
+  animation: floatGentle 3s ease-in-out infinite;
+}
+
+.animate-glitchFlicker {
+  animation: glitchFlicker 0.4s ease infinite;
+}
+
+.animate-auroraFlow {
+  background-size: 200% 200%;
+  animation: auroraFlow 8s ease infinite;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 7: CODE INSPECTOR & HEX VIEWER THEMES
+   -------------------------------------------------------------------------- */
+.code-editor-theme {
+  background: #0d0d10;
+  color: #e2e8f0;
+  font-family: var(--nexus-font-mono);
+  font-size: 11px;
+  line-height: 1.65;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.code-editor-theme pre {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.hex-editor-stream {
+  background: #08080a;
+  color: #a1a1aa;
+  font-family: var(--nexus-font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+}
+
+.hex-byte-active {
+  color: #a855f7;
+  font-weight: bold;
+  background: rgba(168, 85, 247, 0.15);
+  border-radius: 2px;
+}
+
+.hex-ascii-active {
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 8: BADGES, TAGS & MATRICES
+   -------------------------------------------------------------------------- */
+.matrix-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  font-family: var(--nexus-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.matrix-badge-purple {
+  background: rgba(168, 85, 247, 0.12);
+  color: #d8b4fe;
+  border-color: rgba(168, 85, 247, 0.28);
+}
+.matrix-badge-purple:hover {
+  background: rgba(168, 85, 247, 0.22);
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+.matrix-badge-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  color: #67e8f9;
+  border-color: rgba(6, 182, 212, 0.28);
+}
+.matrix-badge-cyan:hover {
+  background: rgba(6, 182, 212, 0.22);
+  border-color: rgba(6, 182, 212, 0.5);
+}
+
+.matrix-badge-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.28);
+}
+.matrix-badge-emerald:hover {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.matrix-badge-amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+.matrix-badge-rose {
+  background: rgba(244, 63, 94, 0.12);
+  color: #fda4af;
+  border-color: rgba(244, 63, 94, 0.28);
+}
+
+.cyber-badge {
+  font-family: var(--nexus-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 9: RAYCAST POLISH & INTERACTIVE ROWS
+   -------------------------------------------------------------------------- */
+.raycast-item {
+  position: relative;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.raycast-item:hover {
+  background-color: var(--nexus-surface-hover);
+}
+
+.raycast-item-active {
+  background-color: var(--nexus-surface-active) !important;
+  border-color: var(--nexus-border-strong) !important;
+}
+
+.raycast-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15%;
+  bottom: 15%;
+  width: 3px;
+  background: var(--nexus-accent-purple);
+  border-radius: 0 3px 3px 0;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.raycast-item:hover::after,
+.raycast-item-active::after {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 10: CRT SCANLINES & CYBER HUD OVERLAYS
+   -------------------------------------------------------------------------- */
+.crt-scanlines {
+  position: relative;
+}
+
+.crt-scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* Grid Zoom Modes */
+.grid-zoom-sm {
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+}
+
+.grid-zoom-md {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.grid-zoom-lg {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* Focus Rings */
+:focus-visible {
+  outline: 2px solid var(--nexus-accent-purple);
+  outline-offset: 2px;
+}
+
+/* Truncation helper */
+.truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* GPU-accelerated scrolling and offscreen render deferral */
+.nexus-virtual-row {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 44px;
+}
+
+.nexus-virtual-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 180px;
+}
+
+/* ==========================================================================
+   SECTION 11: ULTRA POLISH & MODERN HIGH-END AESTHETICS (OBSIDIAN TITANIUM)
+   Engineered for: Raycast fluidity, Linear precision, tactile micro-physics,
+   high-density cyber HUD aesthetics with reduced rendering work.
+   ========================================================================== */
+
+/* 1. Tactile Micro-Physics & Luxury Card Lift */
+.nexus-card-luxury {
+  position: relative;
+  background: linear-gradient(145deg, rgba(22, 22, 28, 0.75) 0%, rgba(12, 12, 16, 0.88) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.1), 0 10px 30px -10px rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s ease,
+              box-shadow 0.22s ease;
+}
+
+.nexus-card-luxury:hover {
+  transform: translateY(-3px) scale(1.008);
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.16), 0 16px 40px -10px rgba(168, 85, 247, 0.25), 0 8px 24px rgba(0, 0, 0, 0.8);
+}
+
+/* 2. Tactile Button Interaction */
+.nexus-btn-tactile {
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.15s ease,
+              border-color 0.15s ease,
+              box-shadow 0.15s ease;
+}
+
+.nexus-btn-tactile:active {
+  transform: scale(0.96);
+}
+
+/* 3. Text Gradients (High-End Typography) */
+.text-gradient-titanium {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #e9d5ff 0%, #c084fc 40%, #a855f7 75%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #cffafe 0%, #67e8f9 40%, #06b6d4 75%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #d1fae5 0%, #6ee7b7 40%, #10b981 75%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #fef9c3 0%, #fde047 40%, #eab308 75%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 4. Cyber HUD Status Pills with LED Glow */
+.hud-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--nexus-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hud-pill-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+}
+
+.hud-pill-purple {
+  background: rgba(168, 85, 247, 0.12);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.15);
+}
+
+.hud-pill-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  color: #67e8f9;
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.15);
+}
+
+.hud-pill-amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.15);
+}
+
+/* 5. Smooth Micro-Motion Keyframes & Classes */
+@keyframes scaleUpSoft {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideLeftSoft {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRightSoft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeSlideUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseLedGlow {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+  50% {
+    opacity: 0.45;
+    filter: drop-shadow(0 0 1px currentColor);
+  }
+}
+
+.animate-scaleUp {
+  animation: scaleUpSoft 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideLeft {
+  animation: slideLeftSoft 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideRight {
+  animation: slideRightSoft 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fadeSlide {
+  animation: fadeSlideUpSoft 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-led-pulse {
+  animation: pulseLedGlow 1.8s infinite ease-in-out;
+}
+
+/* 6. Image Studio Canvas Checkerboard (Transparency Grid) */
+.checkerboard-bg {
+  background-color: #0c0c10;
+  background-image: 
+    linear-gradient(45deg, #16161c 25%, transparent 25%), 
+    linear-gradient(-45deg, #16161c 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #16161c 75%), 
+    linear-gradient(-45deg, transparent 75%, #16161c 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+/* 7. Skeleton Shimmer Loading Effect */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerEffect 1.5s infinite;
+}
+
+/* Dashboard responsive layout and shared, low-noise surface treatment. */
+.nexus-dashboard-shell {
+  height: 100dvh;
+  min-height: 0;
+}
+
+.nexus-dashboard-sidebar {
+  position: relative;
+  z-index: 80;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.nexus-dashboard-main {
+  min-height: 0;
+}
+
+.nexus-dashboard-canvas {
+  min-height: 0;
+  overscroll-behavior: contain;
+}
+
+.nexus-dashboard-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.nexus-dashboard-metric {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--nexus-border);
+  border-radius: 0.9rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
+}
+
+.nexus-dashboard-metric-button {
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nexus-dashboard-metric-button:hover {
+  border-color: var(--nexus-border-strong);
+  background: linear-gradient(145deg, rgba(168, 85, 247, 0.1), rgba(255, 255, 255, 0.025));
+}
+
+.nexus-dashboard-metric-button:active {
+  transform: translateY(1px);
+}
+
+.nexus-dashboard-metric-label {
+  color: var(--nexus-text-secondary);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+}
+
+.nexus-dashboard-metric strong {
+  overflow: hidden;
+  color: var(--nexus-text-primary);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nexus-dashboard-metric-note {
+  overflow: hidden;
+  color: var(--nexus-text-muted);
+  font-size: 0.62rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nexus-mobile-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  border: 1px solid var(--nexus-border);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--nexus-text-primary);
+  cursor: pointer;
+}
+
+.nexus-dashboard-mobile-overlay {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .nexus-dashboard-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(19rem, 86vw);
+    height: 100dvh;
+    visibility: hidden;
+    transform: translateX(-105%);
+    box-shadow: none;
+  }
+
+  .nexus-dashboard-sidebar.is-open {
+    visibility: visible;
+    transform: translateX(0);
+    box-shadow: 1rem 0 3rem rgba(0, 0, 0, 0.45);
+  }
+
+  .nexus-dashboard-mobile-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    display: block;
+    border: 0;
+    background: rgba(0, 0, 0, 0.56);
+    backdrop-filter: blur(2px);
+  }
+
+  .nexus-mobile-menu-button {
+    display: inline-flex;
+  }
+
+  .nexus-dashboard-main {
+    width: 100%;
+  }
+
+  .nexus-dashboard-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nexus-dashboard-canvas {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .nexus-dashboard-metrics {
+    gap: 0.5rem;
+  }
+
+  .nexus-dashboard-metric {
+    padding: 0.7rem;
+  }
+
+  .nexus-dashboard-main > div:first-child {
+    min-height: 3.25rem;
+    height: auto;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .nexus-dashboard-main > div:first-child > div:last-child {
+    gap: 0.4rem;
+  }
+
+  .nexus-dashboard-main > div:first-child kbd {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nexus-dashboard-sidebar,
+  .nexus-dashboard-sidebar.is-open,
+  .nexus-dashboard-mobile-overlay,
+  .nexus-dashboard-metric,
+  .nexus-btn-tactile {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms !important;
+  }
+
+  .nexus-dashboard-shell *,
+  .nexus-dashboard-shell *::before,
+  .nexus-dashboard-shell *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* App-wide interaction defaults shared by dashboard, modals and drawers. */
+button:not(:disabled) {
+  touch-action: manipulation;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+input,
+textarea,
+select,
+[contenteditable="true"] {
+  user-select: text;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 14: NEXUS ULTRA DASHBOARD HERO & SCI-FI TELEMETRY
+   -------------------------------------------------------------------------- */
+.nexus-radar-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.nexus-radar-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.12), transparent);
+  animation: nexus-radar-sweep 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes nexus-radar-sweep {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+.nexus-glow-pulse {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25), inset 0 0 15px rgba(168, 85, 247, 0.1);
+  animation: nexus-pulse-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes nexus-pulse-glow {
+  0% {
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.2), inset 0 0 10px rgba(168, 85, 247, 0.05);
+    border-color: rgba(168, 85, 247, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 24px rgba(168, 85, 247, 0.45), inset 0 0 20px rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.6);
+  }
+}
+
+.nexus-card-interactive {
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nexus-card-interactive:hover {
+  transform: translateY(-2px);
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.7), 0 0 20px -4px rgba(168, 85, 247, 0.25);
+}
+
+.nexus-glass-specular {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 15: MODERN FORM VALIDATION (:user-invalid, :user-valid, :has) & DIALOG
+   -------------------------------------------------------------------------- */
+dialog.nexus-auth-dialog {
+  margin: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  max-width: 100vw;
+  max-height: 100dvh;
+  overflow: visible;
+}
+
+dialog.nexus-auth-dialog::backdrop {
+  background-color: rgba(4, 4, 8, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.nexus-field-hint {
+  display: block;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.68rem;
+  font-family: var(--nexus-font-mono);
+  margin-bottom: 0.35rem;
+  transition: color 0.2s ease;
+}
+
+.nexus-field-error {
+  display: none;
+  color: #fda4af;
+  font-size: 0.7rem;
+  font-family: var(--nexus-font-mono);
+  margin-top: 0.35rem;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Only show error styles after user interaction (:user-invalid + fallback) */
+.nexus-auth-input:user-invalid,
+.nexus-auth-input.user-invalid-fallback {
+  border-color: rgba(244, 63, 94, 0.65) !important;
+  background-color: rgba(244, 63, 94, 0.08) !important;
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.12);
+}
+
+/* Reveal sibling error message when input is user-invalid */
+.nexus-auth-input:user-invalid + .nexus-field-error,
+.nexus-auth-input.user-invalid-fallback + .nexus-field-error {
+  display: flex;
+}
+
+/* Success state after interaction (:user-valid + fallback) */
+.nexus-auth-input:user-valid,
+.nexus-auth-input.user-valid-fallback {
+  border-color: rgba(16, 185, 129, 0.5) !important;
+}
+
+/* Parent container styling via :has(:user-invalid) and fallback */
+.nexus-auth-field {
+  border-left: 2px solid transparent;
+  padding-left: 0;
+  transition: border-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.nexus-auth-field:has(.nexus-auth-input:user-invalid),
+.nexus-auth-field.has-error-fallback {
+  border-left-color: #f43f5e;
+  padding-left: 0.5rem;
+}
+
+.nexus-auth-field:has(.nexus-auth-input:user-invalid) label,
+.nexus-auth-field.has-error-fallback label {
+  color: #fda4af;
+}
+
+.nexus-auth-field:has(.nexus-auth-input:user-invalid) .nexus-field-hint,
+.nexus-auth-field.has-error-fallback .nexus-field-hint {
+  color: #fb7185;
+  font-weight: 600;
+}
+
+@supports (scrollbar-width: auto) {
+  .custom-scrollbar {
+    scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+}
+
+@keyframes nexusSpin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.nexus-spinner {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.18);
+  border-top-color: var(--nexus-accent-amber);
+  border-radius: 50%;
+  animation: nexusSpin 0.8s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nexus-spinner {
+    animation-duration: 2.4s;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,26 @@
+node_modules/
+dist/
+dist_installer/
+.scannerwork/
+.quarantine_vault/
+*.log
+*.exe
+
+# Local scratch and workspace tests
+scratch/
+Organized_Workspace/
+_Nexus_Archiwum/
+nexus_private_storage/
+public/storage/
+
+# Server secrets and storage files
+server/storage/*.key
+server/storage/nexus_master_secret
+server/storage/nexus_users_vault.json
+server/storage/nexus_licenses.json
+server/storage/nexus_reset_codes.json
+server/storage/ai_settings.json
+server/storage/quarantine_registry.json
+server/storage/crypto_orders.json
+server/storage/TWOJ_PORTFEL_*.txt
+server/storage/*.tmp
