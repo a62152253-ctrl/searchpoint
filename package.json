@@ -13,8 +13,9 @@
     "check": "tsc --noEmit"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Arimonit Sp. z o.o.",
+  "private": true,
+  "license": "UNLICENSED",
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
     "basic-ftp": "^6.2.3",

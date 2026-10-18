@@ -1,0 +1,33 @@
+PROPRIETARY AND CONFIDENTIAL SOURCE CODE LICENSE
+PRAWO WŁASNOŚCI I POUFNA LICENCJA OPROGRAMOWANIA
+
+Copyright (C) 2026 Arimonit Sp. z o.o. Wszelkie prawa zastrzeżone / All Rights Reserved.
+
+Niniejszy kod źródłowy, architektura, algorytmy, bazy danych oraz wszelkie powiązane zasoby oprogramowania stanowią wyłączną własność intelektualną, majątkową oraz tajemnicę przedsiębiorstwa spółki:
+
+    Arimonit Sp. z o.o.
+
+================================================================================
+KLAUZULA ŚCISŁEGO ZAKAZU KOPIOWANIA I WYKORZYSTANIA
+================================================================================
+
+Bez uprzedniej, wyraźnej zgody pisemnej pod rygorem nieważności, udzielonej przez zarząd Arimonit Sp. z o.o., surowo zabrania się:
+
+1. Kopiowania, klonowania, powielania, transferowania lub replikowania choćby pojedynczej linii kodu źródłowego lub zasobów binarnych.
+2. Inżynierii wstecznej (reverse engineering), dekompilacji, deasemblacji, analizy pamięciowej lub próby rekonstrukcji kodu źródłowego.
+3. Modyfikowania, tworzenia dzieł zależnych lub włączania jakiejkolwiek części tego oprogramowania do innych projektów prywatnych, komercyjnych bądź open-source.
+4. Publikowania, dystrybucji, wypożyczania, sprzedaży, sublicencjonowania lub udostępniania osobom trzecim.
+5. Używania kodu źródłowego, schematów architektury lub danych aplikacji do trenowania, fine-tuningu lub promptowania zewnętrznych modeli sztucznej inteligencji (AI/LLM) bez dedykowanej umowy korporacyjnej z Arimonit Sp. z o.o.
+
+NARUSZENIE PRAW AUTORSKICH I TAJEMNICY PRZEDSIĘBIORSTWA:
+Wszelkie naruszenia powyższych postanowień podlegają bezpośrednim sankcjom prawnym wynikającym z ustawy o prawie autorskim i prawach pokrewnych, ustawy o zwalczaniu nieuczciwej konkurencji (tajemnica przedsiębiorstwa) oraz międzynarodowych traktatów o ochronie własności intelektualnej, w tym dochodzeniu odszkodowań finansowych i odpowiedzialności karnej.
+
+================================================================================
+ENGLISH SUMMARY / LEGAL TERMS
+================================================================================
+
+This software and its entire codebase are the proprietary, confidential trade secrets and intellectual property of Arimonit Sp. z o.o.
+
+Copyright (C) 2026 Arimonit Sp. z o.o. All Rights Reserved.
+
+No part of this source code, software, documentation, or architecture may be copied, reproduced, modified, distributed, reverse engineered, decompiled, extracted, or sublicensed in any form or by any means—even a single line of code—without prior written permission from Arimonit Sp. z o.o.
